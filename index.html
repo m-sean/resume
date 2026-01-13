@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sean Miller - Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        @page {
+            margin: 0.35in;
+            size: letter;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'IBM Plex Sans', 'SF Mono', 'Monaco', 'Courier New', monospace;
+            line-height: 1.3;
+            color: #1a202c;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.3in;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            font-size: 8.5pt;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .resume-container {
+            background: white;
+            padding: 0.3in;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-radius: 8px;
+        }
+        
+        header {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-template-rows: auto auto;
+            gap: 2px 20px;
+        }
+        
+        h1 {
+            font-size: 30pt;
+            color: #0f172a;
+            margin-bottom: 0;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            grid-column: 1;
+            grid-row: 1;
+        }
+        
+        .subtitle {
+            font-size: 11pt;
+            color: #64748b;
+            font-weight: 400;
+            margin-bottom: 0;
+            letter-spacing: 0.3px;
+            grid-column: 1;
+            grid-row: 2;
+        }
+        
+        .contact-info {
+            font-size: 9pt;
+            color: #64748b;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            align-items: flex-end;
+            text-align: right;
+            grid-column: 2;
+            grid-row: 1 / 3;
+            justify-content: center;
+        }
+        
+        .contact-info a {
+            color: #0ea5e9;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .contact-info a:hover {
+            color: #0284c7;
+        }
+        
+        .contact-divider {
+            display: none;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: 2.5in 1fr;
+            gap: 0.35in;
+        }
+        
+        .left-column {
+            padding-right: 0.15in;
+        }
+        
+        .right-column {
+            padding-left: 0.15in;
+        }
+        
+        h2 {
+            font-size: 12pt;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 8px;
+            margin-top: 12px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 4px;
+        }
+        
+        h2:first-child {
+            margin-top: 0;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 99%;
+            height: 0.5px;
+            background: #0ea5e9;
+            border-radius: 2px;
+        }
+        
+        h3 {
+            font-size: 12pt;
+            color: #0f172a;
+            margin-top: 8px;
+            margin-bottom: 1px;
+            font-weight: 600;
+        }
+        
+        h4 {
+            font-size: 11pt;
+            color: #008fd1;
+            margin-top: 7px;
+            margin-bottom: 5px;
+            padding-bottom: 3px;
+            font-weight: 600;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px;
+        }
+        
+        .date {
+            font-style: normal;
+            color: #64748b;
+            font-size: 8pt;
+            font-weight: 400;
+        }
+        
+        p {
+            font-size: 9pt;
+            margin-bottom: 5px;
+            line-height: 1.3;
+            color: #475569;
+        }
+        
+        .summary-text {
+            font-size: 9pt;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            color: #334155;
+        }
+        
+        .skill-category {
+            margin-bottom: 10px;
+        }
+        
+        .skill-label {
+            font-size: 8pt;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+            display: block;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+        
+        .skill-tag {
+            background: #f1f5f9;
+            color: #1e293b;
+            padding: 2px 6px;
+            border-radius: 2px;
+            font-size: 7.5pt;
+            font-weight: 500;
+            border: 1px solid #cbd5e1;
+        }
+        
+        ul {
+            margin-left: 0;
+            margin-bottom: 5px;
+            list-style: none;
+        }
+        
+        li {
+            font-size: 8.5pt;
+            margin-bottom: 2px;
+            line-height: 1.3;
+            position: relative;
+            padding-left: 14px;
+            color: #475569;
+        }
+        
+        li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #0ea5e9;
+            font-weight: 700;
+        }
+        
+        .compact-list li {
+            margin-bottom: 3px;
+        }
+        
+        .subsection-title {
+            font-weight: 600;
+            color: #1e293b;
+            margin-top: 5px;
+            margin-bottom: 4px;
+            font-size: 8.5pt;
+        }
+        
+        .education-item {
+            margin-bottom: 6px;
+            padding: 6px;
+            background: #f8fafc;
+            border-radius: 2px;
+            border-left: 3px solid #0ea5e9;
+        }
+        
+        .school-name {
+            font-weight: 600;
+            color: #0f172a;
+            font-size: 9pt;
+        }
+        
+        .degree {
+            font-weight: 500;
+            color: #334155;
+            font-size: 8.5pt;
+            margin-top: 1px;
+        }
+        
+        .coursework {
+            font-size: 7.5pt;
+            color: #64748b;
+            line-height: 1.3;
+            margin-top: 2px;
+        }
+        
+        .interest-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+        
+        .interest-tag {
+            background: #f1f5f9;
+            color: #334155;
+            padding: 2px 6px;
+            border-radius: 2px;
+            font-size: 7.5pt;
+            font-weight: 500;
+            border: 1px solid #cbd5e1;
+        }
+        
+        .section-spacing {
+            margin-bottom: 9px;
+        }
+        
+        strong {
+            color: #1e293b;
+            font-weight: 600;
+        }
+        
+        @media print {
+            body {
+                padding: 0.3in;
+                background: white;
+            }
+            
+            .resume-container {
+                box-shadow: none;
+                padding: 0;
+            }
+            
+            .container {
+                page-break-inside: avoid;
+            }
+            
+            .education-item {
+                background: white;
+                border-left: 2px solid #0ea5e9;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <header>
+            <h1>Sean Miller</h1>
+            <div class="subtitle">AI Engineer • Full-Stack Developer • NLP Specialist</div>
+            <div class="contact-info">
+                <a href="https://www.linkedin.com/in/sean-miller">https://www.linkedin.com/in/sean-miller</a>
+                <span class="contact-divider">•</span>
+                <a href="https://github.com/m-sean">https://github.com/m-sean</a>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="left-column">
+                <section class="section-spacing">
+                    <h2>Skills</h2>
+                    
+                    <div class="skill-category">
+                        <span class="skill-label">Languages</span>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Rust</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Vue.js</span>
+                            <span class="skill-tag">HTML</span> 
+                            <span class="skill-tag">CSS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <span class="skill-label">AI & ML</span>
+                        <div class="skill-tags">
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">ONNX</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">Transformers</span>
+                            <span class="skill-tag">Dual Encoder</span>
+                            <span class="skill-tag">Statistics</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <span class="skill-label">Cloud & Infrastructure</span>
+                        <div class="skill-tags">
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Azure</span>
+                            <span class="skill-tag">Google Cloud</span>
+                            <span class="skill-tag">Grafana</span>
+                            <span class="skill-tag">Kubernetes</span>
+                            <span class="skill-tag">CoreWeave</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <span class="skill-label">Data & Tools</span>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Elasticsearch</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">DynamoDB</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Django</span>
+                            <span class="skill-tag">Flask</span>
+                            <span class="skill-tag">Snowflake</span>
+                            <span class="skill-tag">REST</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <span class="skill-label">Spoken Languages</span>
+                        <div class="skill-tags">
+                            <span class="skill-tag">English</span>
+                            <span class="skill-tag">Spanish</span>
+                            <span class="skill-tag">French</span>
+                            <span class="skill-tag">German</span>
+                            <span class="skill-tag">Japanese</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section-spacing">
+                    <h2>Education</h2>
+                    <div class="education-item">
+                        <div class="school-name">CUNY Graduate Center</div>
+                        <div class="degree">MA - Computational Linguistics</div>
+                        <div class="date">2021</div>
+                        <div class="coursework">Neural Networks • Deep Learning • NLP & Psychology • Speech & Audio Understanding</div>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="school-name">SUNY Purchase</div>
+                        <div class="degree">BA - Language & Culture (French)</div>
+                        <div class="date">2011</div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Interests</h2>
+                    <div class="interest-tags">
+                        <span class="interest-tag">Theoretical Linguistics</span>
+                        <span class="interest-tag">Language Acquisition</span>
+                        <span class="interest-tag">Fermented Foods</span>
+                        <span class="interest-tag">Cooking & Baking</span>
+                        <span class="interest-tag">Horticulture</span>
+                        <span class="interest-tag">Weightlifting</span>
+                        <span class="interest-tag">Chess</span>
+                        <span class="interest-tag">Anime</span>
+                        <span class="interest-tag">Animal Rescue</span>
+                    </div>
+                </section>
+            </div>
+
+            <div class="right-column">
+                <section class="section-spacing">
+                    <h2>Summary</h2>
+                    <p class="summary-text">Full-stack software engineer with over 5 years of specialized experience in machine learning and natural language processing. Expert in building production-grade systems, optimizing inference pipelines, and delivering scalable solutions across cloud platforms. Proven track record of transforming complex technical challenges into efficient, maintainable systems using Rust and Python.</p>
+                </section>
+
+                <section>
+                    <h2>Experience</h2>
+                    
+                    <h3>Converseon | New York, NY</h3>
+                    
+                    <div class="job-header">
+                        <h4>AI Engineer</h4>
+                        <span class="date">June 2021 - Present</span>
+                    </div>
+                    <p>Lead ML systems development and NLP applications across the full project lifecycle.</p>
+                    
+                    <ul class="compact-list">
+                        <li>Architect and deploy ML microservices in Rust and Python for production environments</li>
+                        <li>Deploy inference services on AWS, CoreWeave, and Azure platforms</li>
+                        <li>Design end-to-end pipelines for web apps and custom client solutions</li>
+                        <li>Lead legacy code refactoring and conduct code reviews for quality assurance</li>
+                    </ul>
+                    
+                    <div class="subsection-title">Key Accomplishments:</div>
+                    <ul class="compact-list">
+                        <li><strong>Production Models:</strong> Trained, optimized, and deployed transformer based classification, regression and dual encoder models and model pipelines for token-level, document-level and complex inference tasks.</li>
+                        <li><strong>Dataset Deduplication:</strong> Built memory-safe deduplication system using locality-sensitive hashing in Rust, drastically reducing processing time</li>
+                        <li><strong>Serverless Annotation App:</strong> Created pairwise ranking annotation tool in Rust, deployed on AWS Lambda</li>
+                        <li><strong>Text Summarization:</strong> Implemented GPT-powered topic model summarization</li>
+                    </ul>
+                    
+                    <div class="job-header">
+                        <h4>ML Research Analyst</h4>
+                        <span class="date">Feb 2021 - June 2021</span>
+                    </div>
+                    <ul class="compact-list">
+                        <li>Researched and deployed hashtag segmentation model with full-stack integration</li>
+                        <li>Developed Python scripts integrating internal/external APIs for workflow optimization</li>
+                        <li>Managed database systems for training datasets</li>
+                    </ul>
+                    
+                    <div class="job-header">
+                        <h4>Data Science Intern</h4>
+                        <span class="date">Dec 2019 - Feb 2021</span>
+                    </div>
+                    <ul class="compact-list">
+                        <li>Curated multilingual datasets and trained NLP models for English and French</li>
+                        <li>Developed automation scripts for dataset preparation and model training</li>
+                        <li>Collaborated with clients and Head of Data Quality on model requirements</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
